@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Clone - Real-time Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Auth Screen -->
+        <div id="authScreen" class="login-screen">
+            <div class="login-box">
+                <h1>WhatsApp Clone</h1>
+                
+                <!-- Login Form -->
+                <div id="loginForm">
+                    <p>Login to your account</p>
+                    <input type="text" id="loginUsername" placeholder="Username" />
+                    <input type="password" id="loginPassword" placeholder="Password" />
+                    <button id="loginBtn">Login</button>
+                    <div id="loginError" class="error-message"></div>
+                    <p class="auth-switch">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+                </div>
+
+                <!-- Register Form -->
+                <div id="registerForm" style="display: none;">
+                    <p>Create a new account</p>
+                    <input type="text" id="registerUsername" placeholder="Username" />
+                    <input type="email" id="registerEmail" placeholder="Email" />
+                    <input type="password" id="registerPassword" placeholder="Password (min 6 characters)" />
+                    <input type="password" id="registerConfirmPassword" placeholder="Confirm Password" />
+                    <button id="registerBtn">Register</button>
+                    <div id="registerError" class="error-message"></div>
+                    <div id="registerSuccess" class="success-message"></div>
+                    <p class="auth-switch">Already have an account? <a href="#" id="showLogin">Login</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Interface -->
+        <div id="chatInterface" class="chat-interface" style="display: none;">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h2 id="currentUsername"></h2>
+                    <div class="header-actions">
+                        <span class="online-indicator" id="onlineStatus">●</span>
+                        <button id="logoutBtn" class="logout-btn">Logout</button>
+                    </div>
+                </div>
+                
+                <div class="users-section">
+                    <h3>Available Users</h3>
+                    <div id="usersList" class="users-list"></div>
+                </div>
+
+                <div class="chats-section">
+                    <h3>Your Chats</h3>
+                    <div id="chatsList" class="chats-list"></div>
+                </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="chat-window">
+                <div id="noChatSelected" class="no-chat-selected">
+                    <h2>Welcome to WhatsApp Clone</h2>
+                    <p>Select a user from the list to start chatting</p>
+                </div>
+
+                <div id="activeChatWindow" class="active-chat-window" style="display: none;">
+                    <div class="chat-header">
+                        <h3 id="chatWithUsername"></h3>
+                        <div class="chat-actions">
+                            <span id="typingIndicator" class="typing-indicator"></span>
+                        </div>
+                    </div>
+
+                    <div class="messages-container" id="messagesContainer">
+                        <!-- Messages will be dynamically added here -->
+                    </div>
+
+                    <div class="message-input-container">
+                        <input 
+                            type="text" 
+                            id="messageInput" 
+                            placeholder="Type a message..." 
+                            autocomplete="off"
+                        />
+                        <button id="sendBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
